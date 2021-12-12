@@ -21,8 +21,8 @@ def load_sound_file():
 def show_input_graph():
     plt.figure(figsize=(8, 5))
     plt.plot(time_line, signal)
-    plt.ylabel('value')
-    plt.gca().set_xlabel('time [s]')
+    plt.ylabel('Hodnota []')
+    plt.gca().set_xlabel('čas [s]')
     plt.gca().set_title('Vstupný zvukový signál')
     plt.tight_layout()
     plt.show()
@@ -31,8 +31,8 @@ def show_frames_graph():
     plt.figure(figsize=(30, 8))
     time_line = np.arange(frames[7].size) /sampl_frekv
     plt.plot(time_line, frames[7])
-    plt.ylabel('value')
-    plt.gca().set_xlabel('time [s]')
+    plt.ylabel('Hodnota []')
+    plt.gca().set_xlabel('Čas [s]')
     plt.gca().set_title('Rámce')
     plt.tight_layout()
     plt.show()
@@ -51,7 +51,28 @@ def task_2():
     frames = list(sf.blocks('xkicin02.wav',blocksize=1024,overlap=512))
     show_frames_graph()
 
+def task_3():
+    N = frames[7].size
+    omega = np.exp((-2 * np.pi * 1j) / N)
+    r = np.arange(N)
+    w_matrix = np.vander(omega ** r, increasing=True)
+    frames[7] = w_matrix @ frames[7]
+    #frames[7] = np.fft.fft(frames[7])
+    task_3_graf()
+
+def task_3_graf():
+    plt.figure(figsize=(8, 5))
+    split_array = np.split(frames[7],2)
+    time_line = np.arange(np.size(np.real(split_array[0])))
+    plt.plot(time_line,np.real(split_array[0]))
+    plt.ylabel('Hodnota []')
+    plt.gca().set_xlabel('Frekvencia [Hz]')
+    plt.gca().set_title('Diskrétna fourierova transformácia (DFT)')
+    plt.tight_layout()
+    plt.show()
+
 if __name__ == '__main__':
     load_sound_file()
     task_1()
     task_2()
+    task_3()
