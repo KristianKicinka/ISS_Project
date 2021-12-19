@@ -1,24 +1,23 @@
 import matplotlib as matplotlib
 import numpy as np
 import matplotlib.pyplot as plt
-import soundfile as sf
+import soundfile as sound_file
 import IPython
 from scipy.signal import spectrogram, lfilter, freqz, tf2zpk
 
 
 
-def load_sound_file():
-    global signal, sample_frekv, time_line, time
+def load_sound_file(signal,sample_frekvency,time_line,time):
 
-    signal, sample_frekv = sf.read('xkicin02.wav')
-    time_line = np.arange(signal.size) / sample_frekv
-    time = signal.size / sample_frekv
+    signal, sample_frekvency = sound_file.read('../xkicin02.wav')
+    time_line = np.arange(signal.size) / sample_frekvency
+    time = signal.size / sample_frekvency
 
     print(f'count of samples : {signal.size}')
-    print(f'FS is : {sample_frekv}')
+    print(f'FS is : {sample_frekvency}')
     print(f'time of recordes sound : {time} ')
 
-def show_input_graph():
+def show_input_graph(time_line,signal):
     plt.figure(figsize=(8, 5))
     plt.plot(time_line, signal)
     plt.ylabel('Hodnota []')
@@ -26,10 +25,10 @@ def show_input_graph():
     plt.gca().set_title('Vstupný zvukový signál')
     plt.tight_layout()
     plt.show()
-
+"""
 def show_frames_graph():
     plt.figure(figsize=(30, 8))
-    time_line = np.arange(my_frame.size) /sample_frekv
+    time_line = np.arange(my_frame.size) /sample_frekvency
     plt.plot(time_line, my_frame)
     plt.ylabel('Hodnota []')
     plt.gca().set_xlabel('Čas [s]')
@@ -88,11 +87,13 @@ def task_4():
     plt.show()
 
 
-
+"""
 
 if __name__ == '__main__':
-    load_sound_file()
-    task_1()
-    task_2()
-    task_3()
-    task_4()
+    global signal, sample_frekvency, time_line, time
+    load_sound_file(signal,sample_frekvency,time_line,time)
+    show_input_graph(time_line,signal)
+   # task_1()
+   # task_2()
+   # task_3()
+   # task_4()
