@@ -27,6 +27,7 @@ def load_sound_file():
 
 if __name__ == '__main__':
     global signal, sample_frekvency, time, frames, found_frekvencies, time_line
+    load_sound_file()
     task_1(time_line, signal)
     frames = get_frames()
     my_frame = task_2(frames, time_line, sample_frekvency)
@@ -34,5 +35,6 @@ if __name__ == '__main__':
     task_4(signal, sample_frekvency)
     found_frekvencies = task_5(my_frame, signal)
     task_6(found_frekvencies, sample_frekvency, signal)
-    task_7(found_frekvencies, sample_frekvency, signal)
+    clear_signal = task_7(found_frekvencies, sample_frekvency, signal)
+    task_10(clear_signal, sample_frekvency)
 

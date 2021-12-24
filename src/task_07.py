@@ -50,5 +50,6 @@ def task_7(found_frekvencies, sample_frekvency, signal):
     print(f'{data}')
     print(f'data done')
     task_7_spectogram(data,sample_frekvency)
+    return data
 
 
