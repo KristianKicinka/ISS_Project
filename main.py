@@ -9,6 +9,7 @@ from src.task_02 import *
 from src.task_03 import *
 from src.task_04 import *
 from src.task_05 import *
+from src.task_06 import *
 
 
 def load_sound_file():
@@ -23,11 +24,13 @@ def load_sound_file():
 
 
 if __name__ == '__main__':
-    global signal, sample_frekvency, time_line, time, frames
+    global signal, sample_frekvency, time_line, time, frames, found_frekvencies
     load_sound_file()
     task_1(time_line,signal)
     frames = get_frames()
     my_frame = task_2(frames,time_line,sample_frekvency)
     my_frame = task_3(my_frame)
     task_4(signal,sample_frekvency)
-    task_5(my_frame)
+    found_frekvencies = task_5(my_frame,signal)
+    task_6(found_frekvencies)
+
