@@ -8,7 +8,8 @@ from scipy.signal import spectrogram
 def task_6(frequencies, sample_frequency, signal):
     norm_frequency = np.size(signal) / sample_frequency
     step = 1/sample_frequency
-    cos_signal = np.empty(np.size(signal))*0.0
+    cos_signal = [0]*(np.size(signal))
+
     for frequency in frequencies:
         cos_signal = cos_signal + np.cos(np.arange(0, norm_frequency, step)*(2*np.pi*frequency))
 
