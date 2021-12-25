@@ -14,6 +14,7 @@ from src.task_07 import *
 from src.task_10 import *
 
 
+
 def load_sound_file():
     global signal, sample_frekvency, time_line, time
     signal, sample_frekvency = sound_file.read('audio/xkicin02.wav')
