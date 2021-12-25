@@ -4,6 +4,9 @@ import soundfile
 from matplotlib import pyplot as plt
 from scipy.signal import spectrogram, lfilter
 
+from src.task_08 import *
+from src.task_09 import *
+
 
 def filter_function(frekvency, sample_frekvency, data, index):
     pass_correction = 15
@@ -31,6 +34,8 @@ def filter_function(frekvency, sample_frekvency, data, index):
     print(f'b = {b}')
 
     impulse_response(b, a, index)
+    task_8(b, a, index)
+    task_9(b, a, sample_frekvency, index)
 
     filtered_signal = scipy.signal.filtfilt(b, a, data)
     return filtered_signal
