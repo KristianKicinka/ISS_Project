@@ -10,11 +10,11 @@ def task_3(my_frame):
     w_matrix = np.vander(omega ** r, increasing=True)
     my_frame = w_matrix @ my_frame
     # frames[7] = np.fft.fft(frames[7])
-    my_frame = task_3_graf(my_frame)
+    my_frame = task_3_graph(my_frame)
     return my_frame
 
 
-def task_3_graf(my_frame):
+def task_3_graph(my_frame):
     plt.figure(figsize=(8, 5))
     split_array = np.split(my_frame, 2)
     time_line = np.arange(np.size(np.real(split_array[0])))*8000/512
