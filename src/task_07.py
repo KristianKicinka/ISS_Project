@@ -57,7 +57,7 @@ def task_7_spectogram(signal,sample_frekvency):
 def impulse_response(b, a, index):
     n_count_imp = 32
     imp = [1, *np.zeros(n_count_imp - 1)]
-    h = lfilter(b, a, imp)
+    h = scipy.signal.filtfilt(b, a, imp)
     plt.figure(figsize=(5, 3))
     plt.stem(np.arange(n_count_imp), h, basefmt=' ')
     plt.gca().set_xlabel('$n$')
