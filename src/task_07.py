@@ -52,10 +52,10 @@ def task_7_spectogram(signal, sample_frequency):
 
 
 def impulse_response(b, a, index):
-    n_count_imp = 32
+    n_count_imp = 120
     imp = [1, *np.zeros(n_count_imp - 1)]
     h = scipy.signal.filtfilt(b, a, imp)
-    plt.figure(figsize=(5, 3))
+    plt.figure(figsize=(15, 5))
     plt.stem(np.arange(n_count_imp), h, basefmt=' ')
     plt.gca().set_xlabel('$n$')
     plt.gca().set_title(f'Impulzna odozva filtra frekvencie f{index} $h[n]$')
@@ -70,8 +70,7 @@ def task_7(found_frequencies, sample_frequency, signal):
     for frequency in found_frequencies:
         data = filter_function(frequency, sample_frequency, data, index)
         index += 1
-    print(f'{data}')
-    print(f'data done')
+
     task_7_spectogram(data, sample_frequency)
     return data
 
