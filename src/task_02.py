@@ -11,7 +11,7 @@ def get_frames():
 
 def task_2(frames, time_line, sample_frequency):
     # choose correct frame from signal
-    my_frame = frames[7]
+    my_frame = frames[66] # 7
     show_frames_graph(frames, my_frame, time_line, sample_frequency)
     return my_frame
 
