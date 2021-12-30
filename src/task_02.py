@@ -5,7 +5,7 @@ import soundfile as sound_file
 
 
 def get_frames():
-    frames = list(sound_file.blocks('audio/xkicin02.wav', blocksize=1024, overlap=512))
+    frames = list(sound_file.blocks('../audio/xkicin02.wav', blocksize=1024, overlap=512))
     return frames
 
 

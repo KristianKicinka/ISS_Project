@@ -11,7 +11,7 @@ from src.task_10 import *
 
 def load_sound_file():
     global signal, sample_frequency, time_line, time
-    signal, sample_frequency = sound_file.read('audio/xkicin02.wav')
+    signal, sample_frequency = sound_file.read('../audio/xkicin02.wav')
     time_line = np.arange(signal.size) / sample_frequency
     time = signal.size / sample_frequency
 

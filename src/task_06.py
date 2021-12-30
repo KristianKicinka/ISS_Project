@@ -15,7 +15,7 @@ def task_6(frequencies, sample_frequency, signal):
 
     print(f'cos : {cos_signal}')
     task_6_spectogram(cos_signal, sample_frequency)
-    soundfile.write('audio/4cos.wav', cos_signal, sample_frequency)
+    soundfile.write('../audio/4cos.wav', cos_signal, sample_frequency)
 
 
 def task_6_spectogram(signal, sample_frequency):
