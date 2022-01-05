@@ -4,8 +4,14 @@ import matplotlib.pyplot as plt
 import soundfile as sound_file
 
 
-def get_frames():
-    frames = list(sound_file.blocks('../audio/xkicin02.wav', blocksize=1024, overlap=512))
+def get_frames(signal):
+    frames = list()
+    block_size = 1024
+    overlap = 512
+
+    for frame in range(0, len(signal), overlap):
+        frames.append(signal[frame: frame + block_size])
+
     return frames
 
 

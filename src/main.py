@@ -24,7 +24,7 @@ if __name__ == '__main__':
     global signal, sample_frequency, time, frames, found_frequencies, time_line
     load_sound_file()
     task_1(time_line, signal)
-    frames = get_frames()
+    frames = get_frames(signal)
     my_frame = task_2(frames, time_line, sample_frequency)
     my_frame = task_3(my_frame)
     task_4(signal, sample_frequency)
