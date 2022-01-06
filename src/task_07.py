@@ -6,23 +6,24 @@ from src.task_09 import *
 
 
 def filter_function(frequency, sample_frequency, data, index):
-    pass_correction = 15
-    stop_correction = 50
+    stop_correction = 15
+    pass_correction = 50
     g_pass = 3
     g_stop = 40
     nyquest_frequency = sample_frequency/2
 
-    pass_start = (frequency-pass_correction)
-    pass_end = (frequency+pass_correction)
-    stop_start = (pass_start-stop_correction)
-    stop_end = (pass_end+stop_correction)
+    stop_start = (frequency-stop_correction)
+    stop_end = (frequency+stop_correction)
+    pass_start = (stop_start-pass_correction)
+    pass_end = (stop_end+pass_correction)
 
+    stop_start = stop_start / nyquest_frequency
+    stop_end = stop_end / nyquest_frequency
     pass_start = pass_start/nyquest_frequency
     pass_end = pass_end/nyquest_frequency
-    stop_start = stop_start/nyquest_frequency
-    stop_end = stop_end/nyquest_frequency
 
-    N, Wn = scipy.signal.buttord([stop_start, stop_end], [pass_start, pass_end], g_pass, g_stop, False)
+
+    N, Wn = scipy.signal.buttord([pass_start, pass_end], [stop_start, stop_end], g_pass, g_stop, False)
 
     b, a = scipy.signal.butter(N, Wn, 'bandstop', analog=False)
 
