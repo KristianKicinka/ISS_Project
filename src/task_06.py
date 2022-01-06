@@ -13,7 +13,6 @@ def task_6(frequencies, sample_frequency, signal):
     for frequency in frequencies:
         cos_signal = cos_signal + np.cos(np.arange(0, norm_frequency, step)*(2*np.pi*frequency))
 
-    print(f'cos : {cos_signal}')
     task_6_spectogram(cos_signal, sample_frequency)
     soundfile.write('../audio/4cos.wav', cos_signal, sample_frequency)
 
